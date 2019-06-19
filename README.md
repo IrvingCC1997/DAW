@@ -1,2 +1,2 @@
 # DAW
-Desarrollo de Aplicaciones Web | Apptracsem | Chipset() 
+Desarrollo de Aplicaciones Web | Apptracsem | Equipo Chipset() 
