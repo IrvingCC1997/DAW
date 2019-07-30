@@ -1,4 +1,14 @@
 <?php
+/*
+* Modelo Cuenta 
+*
+* @author Alberto León
+* @package application/models
+*
+* @version 1.0.0
+* Creado lunes, 30/07/2019
+* Ultima modificación de 30/07/2019
+*/
 defined('BASEPATH') OR exit("You can't here");
 
 class Cuenta_model extends CI_Model{
@@ -62,6 +72,15 @@ class Cuenta_model extends CI_Model{
         );
 
         $this->db->insert('clientes', $data);
-    }
+	}
+	
+	public function log(){
+		// Hacemos la consulta a la BD
+		$this->db->where('correoElectronico', $this->_correoCliente);
+		$this->db->select('contrasena, nombreCliente');
+		$this->db->from('clientes');
+		$getDB = $this->db->get('');
+		return $getDB->result();
+	}
 
 }

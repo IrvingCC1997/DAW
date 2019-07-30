@@ -14,13 +14,13 @@
 <main>
 	<div class="contenedor">
 		<div class="card-cuenta">
-			<form action="" method="post">
+			<form action="Cuenta/login" method="post">
 				<center><h4 class="titulo">Mi cuenta</h4></center><br>
 				<label for="">Ingresa tu correo electronico:</label>
-				<input type="text" class="form-control input" placeholder="agrotracsem@apptracsem.com">
+				<input type="text" name="mail" class="form-control input" placeholder="agrotracsem@apptracsem.com">
 				<br>
 				<label for="">Ingresa tu contraseña:</label>
-				<input type="password" class="form-control input" placeholder="**********">
+				<input type="password" name="pass" class="form-control input" placeholder="**********">
 				<br>
 				<button class="btn btn-primary btn-block">Iniciar sesión</button>
 			</form><br>

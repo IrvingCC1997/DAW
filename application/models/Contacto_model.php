@@ -1,4 +1,14 @@
 <?php
+/*
+* Modelo Cuenta 
+*
+* @author Alberto León
+* @package application/models
+*
+* @version 1.0.0
+* Creado lunes, 30/07/2019
+* Ultima modificación de 30/07/2019
+*/
 defined('BASEPATH') OR exit("You can't here");
 
 class Contacto_model extends CI_Model{
