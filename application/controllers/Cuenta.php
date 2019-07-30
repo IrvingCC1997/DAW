@@ -54,7 +54,7 @@ class Cuenta extends CI_Controller {
 
 	public function registrar(){
 		// Ciframos lo que tenga la variable contrasena
-		$ciphertext = $this->encryption->encrypt($this->input->post("pass"););
+		$ciphertext = $this->encryption->encrypt($this->input->post("pass"));
 
 		// Asignamos los valores del formulario al modelo
 		$this->Cuenta_model->set_nombreCliente($this->input->post("nombre"));
