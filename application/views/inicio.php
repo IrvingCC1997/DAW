@@ -65,8 +65,9 @@
 					<hr>
 					<div class="mensaje">
 						<h1> - Agrotracsem -</h1>
-						<h4>Somos una empresa dedicada a la compra y venta de materiales e insumos agricolas. Estamos
-								ubicados en la ciudad de Acámbaro, Guanajuato, México.</h4>
+						<br>
+						<h5>Somos una empresa dedicada a la compra y venta de materiales e insumos agricolas. Estamos
+								ubicados en la ciudad de Acámbaro, Guanajuato, México.</h5>
 					</div>
 					<hr>
 				</div>
@@ -77,10 +78,10 @@
 					<center>
 						<div class="card" style="width: 20rem;">
 							<img src="<?=base_url();?>images/27.jpeg" class="card-img-top">
-							
 							<div class="card-body">
 								<h5 class="card-title">Insumos Agricolas</h5>
-								<a href="" class="btn btn-primary btn-card">Ver categoría</a>
+								<hr>
+								<a href="<?=base_url();?>Insumos" class="primary">CONOCER CATEGORÍA <i class="fas fa-angle-double-right"></i></a>
 							</div>
 						</div>
 					</center>
@@ -92,7 +93,8 @@
 							
 							<div class="card-body">
 								<h5 class="card-title">Servicio mecánico</h5>
-								<a href="" class="btn btn-primary btn-card">Ver categoría</a>
+								<hr>
+								<a href="<?=base_url();?>Insumos" class="primary">CONOCER CATEGORÍA <i class="fas fa-angle-double-right"></i></a>
 							</div>
 						</div>
 					</center>
@@ -104,12 +106,13 @@
 							
 							<div class="card-body">
 								<h5 class="card-title">Refacciones</h5>
-								<a href="" class="btn btn-primary btn-card">Ver categoría</a>
+								<hr>
+								<a href="<?=base_url();?>Insumos" class="primary">CONOCER CATEGORÍA <i class="fas fa-angle-double-right"></i></a>
 							</div>
 						</div>
 					</center>
 				</div>
 			</div>
 		</div>
-	</main>
+	</main><br>
 	

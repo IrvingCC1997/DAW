@@ -1,7 +1,7 @@
 <div class="growl-notice"></div>
 <main>
 	<div class="container">
-		<center><h1 class="titulos">Insumos Agrícolas</h1></center>
+		<center><h1 class="titulos">Refacciones</h1></center>
 		<div class="row">
 				<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
 					<div class="zoom">

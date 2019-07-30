@@ -17,17 +17,20 @@
 				<div class="row">
 					<div class="col-md-12 col-lg-12 col-xl-12">
 						<center>
-							<img src="<?=base_url();?>images/logoNH.png" class="images logoNH" alt="Logo New Holland">
-							<img src="<?=base_url();?>images/logoAgrotracsem.jpg" class="images logoAgrotracsem" alt="Logo Agrotracsem">
-							<img src="<?=base_url();?>images/case.png" class="images logoNH" alt="Logo Case">
+							<div class="d-none d-md-block d-lg-block d-xl-block">
+								<img src="<?=base_url();?>images/logoNH.png" class="images logoNH" alt="Logo New Holland">
+								<img src="<?=base_url();?>images/logoAgrotracsem.jpg" class="images logoAgrotracsem" alt="Logo Agrotracsem">
+								<img src="<?=base_url();?>images/case.png" class="images logoNH" alt="Logo Case">
+							</div>
 						</center>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container">
 		<!--Navbar-->
 		<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+		<div class="container">
+
 				<!-- Navbar brand -->
 				<a class="navbar-brand d-lg-none d-xl-none" href="<?=base_url();?>">Agrotracsem</a>
 
@@ -39,9 +42,8 @@
 
 				<!-- Collapsible content -->
 				<div class="collapse navbar-collapse" id="basicExampleNav">
-
 				<!-- Links -->
-				<ul class="navbar-nav mx-auto">
+				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 					<a class="nav-link" href="<?=base_url();?>Inicio">Inicio
 						<span class="sr-only">(current)</span>
@@ -56,22 +58,23 @@
 
 					<!-- Dropdown -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">Productos</a>
+						<a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Categorias <i class="fas fa-angle-down"></i></a>
 							<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="<?=base_url();?>Insumos">Insumos agrícolas</a>
-								<a class="dropdown-item" href="#">Servicio mecánico</a>
-								<a class="dropdown-item" href="#">Refacciones</a>
+								<a class="dropdown-item" href="<?=base_url();?>Insumos">Insumos Agrícolas</a>
+								<a class="dropdown-item" href="<?=base_url();?>Mecanico">Servicio Mecánico</a>
+								<a class="dropdown-item" href="<?=base_url();?>Refacciones">Refacciones</a>
 							</div>
 					</li>
+				</ul>
 
+				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-					<a class="nav-link" href="<?=base_url();?>Cuenta">Mi cuenta</a>
+						<a class="nav-link" href="#">Carrito <i class="fas fa-shopping-cart"></i></a>
 					</li>
 					<li class="nav-item">
-					<a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Carrito</a>
+						<a class="nav-link" href="<?=base_url();?>Cuenta">Mi cuenta <i class="fas fa-user"></i> </a>
 					</li>
-
 				</ul>
 
 				</div>
