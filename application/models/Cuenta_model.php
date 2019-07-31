@@ -77,7 +77,7 @@ class Cuenta_model extends CI_Model{
 	public function log(){
 		// Hacemos la consulta a la BD
 		$this->db->where('correoElectronico', $this->_correoCliente);
-		$this->db->select('contrasena, nombreCliente');
+		$this->db->select('contrasena, nombreCliente, correoElectronico');
 		$this->db->from('clientes');
 		$getDB = $this->db->get('');
 		return $getDB->result();
