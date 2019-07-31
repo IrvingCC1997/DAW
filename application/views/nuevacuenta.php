@@ -1,3 +1,15 @@
+<?php
+/*
+* View Nueva cuenta 
+*
+* @author Alberto León
+* @package application/models
+*
+* @version 1.0.0
+* Creado lunes, 29/07/2019
+* Ultima modificación de 31/07/2019
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
