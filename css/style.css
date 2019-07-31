@@ -188,6 +188,17 @@ h1, h2, h3, h4, h5, h6, .growl-notice{
 	justify-content: center;
 }
 
+.contenedorLogin{
+	width: 100%;
+	height: 100vh;
+	-ms-display: flex;
+	display: flex;
+	/* alineacion vertical */
+	align-items: center;
+	 /* alineacion horizontal */
+	justify-content: center;
+}
+
 .contenedorCuenta{
 	width: 100%;
 	height: 100vh;
