@@ -88,4 +88,9 @@ class Cuenta extends CI_Controller {
         redirect('Inicio');
 	}
 
+	public function logout(){
+        $this->session->sess_destroy();
+        redirect('Inicio');
+    }
+
 }

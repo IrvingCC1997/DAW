@@ -59,7 +59,7 @@
 					<!-- Dropdown -->
 					<li class="nav-item dropdown">
 						<a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">Categorias <i class="fas fa-angle-down"></i></a>
+							aria-haspopup="true" aria-expanded="false">Productos <i class="fas fa-angle-down"></i></a>
 							<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
 								<a class="dropdown-item" href="<?=base_url();?>Insumos">Insumos Agrícolas</a>
 								<a class="dropdown-item" href="<?=base_url();?>Mecanico">Servicio Mecánico</a>
@@ -73,7 +73,21 @@
 						<a class="nav-link" href="#">Carrito <i class="fas fa-shopping-cart"></i></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?=base_url();?>Cuenta">Mi cuenta <i class="fas fa-user"></i> </a>
+						<?php 
+							if($this->session->userdata('login') == true){
+								echo '
+								<li class="nav-item dropdown">
+									<a class="nav-link" id="userActive" data-toggle="dropdown"
+										aria-haspopup="true" aria-expanded="false"> <i class="fas fa-user-circle"></i> ' . $this->session->userdata("nombre") . ' <i class="fas fa-angle-down"></i></a>
+										<div class="dropdown-menu dropdown-primary" aria-labelledby="userActive">
+											<a class="dropdown-item" href="' . base_url() .'Cuenta/logout">Cerrar Sesión</a>
+										</div>
+								</li>
+								';
+							}else{
+								echo '<a class="nav-link" href="' . base_url() . 'Cuenta">Mi cuenta <i class="fas fa-user"></i> </a>';
+							} 
+						?>
 					</li>
 				</ul>
 
