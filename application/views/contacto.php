@@ -1,3 +1,15 @@
+<?php
+/*
+* Vista Contacto 
+*
+* @author Alberto León
+* @package application/views
+*
+* @version 1.0.0
+* Creado lunes, 29/07/2019
+* Ultima modificación de 31/07/2019
+*/
+?>
 <main>
 	<div class="container">
 		
