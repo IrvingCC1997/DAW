@@ -23,6 +23,11 @@ class Admin extends CI_Controller {
 
     public function index(){
         $this->load->view('Admin/adminLog');
+	}
+	
+	public function logout(){
+        $this->session->sess_destroy();
+        redirect('Admin');
     }
 
     public function login(){
