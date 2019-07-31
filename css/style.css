@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6, .growl-notice{
 
 .images-slider{
 	width: 100%;
-	height: 500px;
+	height: 400px;
 }
 
 .image1{
@@ -109,8 +109,12 @@ h1, h2, h3, h4, h5, h6, .growl-notice{
 }
 
 .image3{
-	background: url('../images/12.jpeg')center no-repeat;
+	background: url('../images/third.jpg')center no-repeat;
 	background-size: cover;
+}
+
+.arrow{
+	color: #262228 !important;
 }
 
 .mensaje{
