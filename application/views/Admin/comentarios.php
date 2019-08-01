@@ -1,3 +1,15 @@
+<?php
+/*
+* Vista Comentarios 
+*
+* @author Alberto León
+* @package views/Admin
+*
+* @version 1.0.0
+* Creado jueves, 01/08/2019
+* Ultima modificación de 01/08/2019
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,69 +62,62 @@
 						<a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"> <?php echo $this->session->userdata('noUsuario'); ?> </i> <i class="fas fa-angle-down"></i></a>
 							<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="<?=base_url();?>Admin/logout">Cerrar Sesión</a>
+								<a class="dropdown-item" href="<?=base_url();?>UsuariosAdmin/logout">Cerrar Sesión</a>
 							</div>
 					</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-	</header>
+	</header><br>
 	
-    <main>
-	<div class="contenedorLogin">
-		<div class="card-cuenta">
-			<form action="<?=base_url();?>UsuariosAdmin/updateUser" method="post">
-
-                <?php foreach($modifyUser as $flag){ ?>
-                    <center><h4 class="titulo">Actualizar al usuario <?=$flag->noUsuario;?></h4></center><br>
-                    <input type="hidden" name="noUsuario" value="<?=$flag->noUsuario;?>"><br>
-                    
-                    <label for="nombre" id="name">Ingresa el Nombre:</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control input" value="<?=$flag->nombreUsuario;?>"><br>
-                    
-                    <label for="apellido" id="apellidos">Ingresa el Apellido:</label>
-                    <input type="text" name="apellido" id="apellido" class="form-control input" value="<?=$flag->apellidoUsuario;?>"><br>
-                    
-                    <label for="contrasenas" id="pass">Actualiza la contraseña:</label>
-                    <input type="password" name="pass" id="contrasenas" class="form-control input" placeholder="**********">
-                <?php } ?>
-
-				<br>
-            
-                <button class="btn btn-primary btn-block" onclick="return validarCuenta();">ACTUALIZAR USUARIO</button>
-			</form>
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-md-12 col-lg-12 col-xl-12">
+				<div class="card-table">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+							<th scope="col">Nombre</th>
+							<th scope="col">Correo electrónico</th>
+                            <th scope="col">Mensaje</th>
+							<th scope="col">Acciones </th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php foreach($contacto as $aux){?>
+							<tr>
+								<th scope="row"><?=$aux->nombreContacto;?></th>
+								<td><?=$aux->correoContacto;?></td>
+								<td><?=$aux->mensaje;?></td>
+								<td>
+									<?php 
+										if($aux->idUsuario_contacto >= 1){
+											echo 'Leído';
+										}else{
+											echo '
+												<form action="leerMensaje" method="post">
+													<input type="hidden" value="'.$this->session->userdata('noUsuario').'" name="user">
+													<input type="hidden" value="'.$aux->idContacto.'" name="id">
+													<button type="submit" class="btn btn-warning">MARCAR COMO LEÍDO</button>
+												</form>
+											';
+										}
+									?>
+								</td>
+							</tr>
+						<?php }?>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
-</main>
 
 	<!-- JQuery -->
 	<script type="text/javascript" src="<?=base_url();?>js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>js/popper.min.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?=base_url();?>js/mdb.min.js"></script>
-    
-    <script>
-	function validarCuenta(){
-		var nombre = document.getElementById("nombre").value;
-		var apellido = document.getElementById("apellido").value;
-		var pass = document.getElementById("contrasenas").value;
-		if(nombre == ""){
-			document.getElementById("name").innerHTML = '<i class="fas fa-exclamation-circle error"></i> <span class="error"> Campo obligatorio</span>';
-			return false;
-		}else if(apellido == ""){
-			document.getElementById("apellidos").innerHTML = '<i class="fas fa-envelope error"></i> <span class="error">El correo es obligatorio</span>';
-			return false;
-		}else if(pass == ""){
-			document.getElementById("pass").innerHTML = '<i class="fas fa-exclamation-circle error"></i> <span class="error">La contraseña es obligatoria</span>';
-			return false;
-		}else if(pass.length < 8){
-			document.getElementById("pass").innerHTML = '<i class="fas fa-pencil-ruler error"></i> <span class="error">La contraseña debe tener más de 8 caracteres</span>';
-			return false;
-		}else{
-			return true;
-		}
-	}
-</script>
+	<script type="text/javascript" src="<?=base_url();?>js/mdb.min.js"></script>
 </body>
 </html>

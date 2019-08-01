@@ -34,7 +34,7 @@
 						<a class="nav-link" href="<?=base_url();?>ClientesAdmin">Clientes</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?=base_url();?>ClientesAdmin">Comentarios</a>
+						<a class="nav-link" href="<?=base_url();?>Contacto/comentarios">Comentarios</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link" id="administrar" data-toggle="dropdown"
