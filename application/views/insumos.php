@@ -22,17 +22,17 @@
 					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
 						<div class="zoom">
 							<div class="card-store">
-								<img src="<?=base_url();?>images/upload_images/<?=$aux->imagen1?>" alt="<?=$aux->nombreProducto?>" class="img-store">
+								<img src="<?=base_url();?>images/images_upload/<?=$aux->imagen1;?>" alt="<?=$aux->nombreProducto?>" class="img-store">
 								<div class="card-body product">
 								<h5 class="titulo"><a href=""><?=$aux->nombreProducto?></a></h5>
-								<span class="categoria"><i class="fas fa-tags"></i> Insumos agrícolas</span>
+								<span class="categoria"><i class="fas fa-tags"></i> <?=$aux->nombreCategoria?></span>
 								<h6 style="color: #197339; margin-top: 1rem;">$<?=$aux->precioVenta?></h6>
 								<hr>
 								<center><a href="<?=base_url();?>Productos/detalleProducto/<?=$aux->idProducto?>" onclick="return displayGrowl();" class="add-shop">AGREGAR AL CARRITO <i class="fas fa-shopping-cart"></i></a></center>
 								</div>
 							</div>
 						</div>
-					</div>
+					</div><br>
 		<?php 
 			
 				}
@@ -44,6 +44,6 @@
 				';
 			} 
 		?>
-		</div>
+		</div><br>
 	</div>
 </main>

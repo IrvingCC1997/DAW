@@ -234,7 +234,8 @@ h1, h2, h3, h4, h5, h6, .growl-notice{
 }
 
 .img-store{
-	width: 100%;
+	width: 100% !important;
+	height: 250px !important;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	border-bottom-left-radius: 15px;
@@ -337,7 +338,9 @@ li{
   .zoom {
 	  width: 100%;
 	  height: 100%;
+	  position: static;
 	transition: transform .1s; /* Animation */
+	margin-bottom: 1rem;
   }
   
   .zoom:hover {

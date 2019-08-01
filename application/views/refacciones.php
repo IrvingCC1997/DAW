@@ -22,7 +22,7 @@
 					<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
 						<div class="zoom">
 							<div class="card-store">
-								<img src="<?=base_url();?>images/upload_images/<?=$aux->imagen1?>" alt="<?=$aux->nombreProducto?>" class="img-store">
+								<img src="<?=base_url();?>images/images_upload/<?=$aux->imagen1;?>" alt="<?=$aux->nombreProducto?>" class="img-store">
 								<div class="card-body product">
 								<h5 class="titulo"><a href=""><?=$aux->nombreProducto?></a></h5>
 								<span class="categoria"><i class="fas fa-tags"></i> <?=$aux->nombreCategoria?></span>
@@ -32,7 +32,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div><br>
 		<?php 
 			
 				}
@@ -44,6 +44,6 @@
 				';
 			} 
 		?>
-		</div>
+		</div><br>
 	</div>
 </main>
