@@ -50,7 +50,7 @@
 						<a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"> <?php echo $this->session->userdata('noUsuario'); ?> </i> <i class="fas fa-angle-down"></i></a>
 							<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="<?=base_url();?>UsuariosAdmin/logout">Cerrar Sesión</a>
+								<a class="dropdown-item" href="<?=base_url();?>Admin/logout">Cerrar Sesión</a>
 							</div>
 					</li>
 					</ul>
@@ -62,22 +62,25 @@
     <main>
 	<div class="contenedorLogin">
 		<div class="card-cuenta">
-			<form action="<?=base_url();?>UsuariosAdmin/registrarAdministrador" method="post">
-				<center><h4 class="titulo">Crear un usuarioa</h4></center><br>
-				<label for="noUsuario" id="no">Ingresa el No. de usuario:</label>
-				<input type="number" name="noUsuario" id="noUsuario" min="0" max="9999" class="form-control input" placeholder="0001"><br>
-                
-                <label for="nombre" id="name">Ingresa el Nombre:</label>
-                <input type="text" name="nombre" id="nombre" class="form-control input" placeholder="agrotracsem"><br>
-                
-                <label for="apellido" id="apellidos">Ingresa el Apellido:</label>
-				<input type="text" name="apellido" id="apellido" class="form-control input" placeholder="apptracsem"><br>
-                
-                <label for="contrasenas" id="pass">Ingresa la contraseña:</label>
-				<input type="password" name="pass" id="contrasenas" class="form-control input" placeholder="**********">
+			<form action="<?=base_url();?>UsuariosAdmin/updateUser" method="post">
+
+                <?php foreach($modifyUser as $flag){ ?>
+                    <center><h4 class="titulo">Actualizar al usuario <?=$flag->noUsuario;?></h4></center><br>
+                    <input type="hidden" name="noUsuario" value="<?=$flag->noUsuario;?>"><br>
+                    
+                    <label for="nombre" id="name">Ingresa el Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control input" value="<?=$flag->nombreUsuario;?>"><br>
+                    
+                    <label for="apellido" id="apellidos">Ingresa el Apellido:</label>
+                    <input type="text" name="apellido" id="apellido" class="form-control input" value="<?=$flag->apellidoUsuario;?>"><br>
+                    
+                    <label for="contrasenas" id="pass">Actualiza la contraseña:</label>
+                    <input type="password" name="pass" id="contrasenas" class="form-control input" placeholder="**********">
+                <?php } ?>
+
 				<br>
             
-                <button class="btn btn-primary btn-block" onclick="return validarCuenta();">Crear Cuenta</button>
+                <button class="btn btn-primary btn-block" onclick="return validarCuenta();">ACTUALIZAR USUARIO</button>
 			</form>
 		</div>
 	</div>
@@ -91,14 +94,10 @@
     
     <script>
 	function validarCuenta(){
-		var noUser = document.getElementById("noUsuario").value;
 		var nombre = document.getElementById("nombre").value;
 		var apellido = document.getElementById("apellido").value;
 		var pass = document.getElementById("contrasenas").value;
-		if(noUser == ""){
-			document.getElementById("no").innerHTML = '<i class="fas fa-exclamation-circle error"></i> <span class="error"> Campo obligatorio</span>';
-			return false;
-		}else if(nombre == ""){
+		if(nombre == ""){
 			document.getElementById("name").innerHTML = '<i class="fas fa-exclamation-circle error"></i> <span class="error"> Campo obligatorio</span>';
 			return false;
 		}else if(apellido == ""){

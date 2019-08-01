@@ -62,7 +62,7 @@ class Usuarios_model extends CI_Model{
 		$this->_permisos = $_permisos;
 	}
 
-	public function verProductos(){
+	public function verUsuarios(){
 		// Hacemos la consulta a la BD
 		$this->db->select('noUsuario, nombreUsuario, apellidoUsuario, permisos');
 		$this->db->from('usuarios');
@@ -78,4 +78,37 @@ class Usuarios_model extends CI_Model{
 		$getDB = $this->db->get('');
 		return $getDB->result();
 	}
+
+	public function registrar_User(){
+        $data = array(
+            'noUsuario' => $this->_noUsuario,
+            'nombreUsuario' => $this->_nombreUsuario,
+			'apellidoUsuario' => $this->_apellidoUsuario,
+			'contrasenaUsuario' => $this->_contrasenaUsuario,
+            'permisos' => $this->_permisos
+        );
+        $this->db->insert('usuarios', $data);
+	}
+	
+	public function listarPorUsuario(){
+		$this->db->where('noUsuario', $this->_noUsuario);
+		$this->db->select('*');
+		$this->db->from('usuarios');
+		$modifyUser = $this->db->get();
+		return $modifyUser->result();
+	}
+
+	public function updateUser(){
+		$this->db->set('nombreUsuario', $this->_nombreUsuario);
+		$this->db->set('apellidoUsuario', $this->_apellidoUsuario);
+		$this->db->set('contrasenaUsuario', $this->_contrasenaUsuario);
+		$this->db->where('noUsuario', $this->_noUsuario);
+		$this->db->update('usuarios');
+	}
+
+	public function deleteUser(){
+		$this->db->where('noUsuario', $this->_noUsuario);
+		$this->db->delete('usuarios');
+	}
+
 }

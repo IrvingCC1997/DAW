@@ -51,7 +51,7 @@
 						<a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"> <?php echo $this->session->userdata('noUsuario'); ?> </i> <i class="fas fa-angle-down"></i></a>
 							<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="<?=base_url();?>Admin/logout">Cerrar Sesión</a>
+								<a class="dropdown-item" href="<?=base_url();?>UsuariosAdmin/logout">Cerrar Sesión</a>
 							</div>
 					</li>
 					</ul>
@@ -62,10 +62,15 @@
 	<!-- Se imprime todo el contenido que tiene la variable -->
 	<?=$output;?>
 
+	<?php foreach($js_files as $files): ?>
+		<script src="<?=$files?>"></script>
+	<?php endforeach; ?>
+
 	<!-- JQuery -->
 	<script type="text/javascript" src="<?=base_url();?>js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>js/popper.min.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<?=base_url();?>js/mdb.min.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>js/mdb.min.js"></script>
+    
 </body>
 </html>

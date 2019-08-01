@@ -50,14 +50,14 @@
 						<a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"> <?php echo $this->session->userdata('noUsuario'); ?> </i> <i class="fas fa-angle-down"></i></a>
 							<div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="<?=base_url();?>Admin/logout">Cerrar Sesión</a>
+								<a class="dropdown-item" href="<?=base_url();?>UsuariosAdmin/logout">Cerrar Sesión</a>
 							</div>
 					</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-	</header>
+	</header><br>
 	
 	<div class="container">
 		<div class="row mt-3">
@@ -79,16 +79,20 @@
 							<tr>
 								<th scope="row"><?=$aux->noUsuario;?></th>
 								<td><?=$aux->nombreUsuario;?></td>
-								<td>$<?=$aux->apellidoUsuario;?></td>
-								<td>$<?=$aux->permisos;?></td>
-								<td><?php
-									if($productos->baja_logica == 0){
-										echo '<a href="'. base_url() . 'Admin/publicarPregunta/' . $productos->idProducto . '"><button class="btn add">Publicar <i class="far fa-thumbs-up"></i></button></a>';
-									}else{
-										echo '<a href="'. base_url() . 'Admin/despublicarPregunta/' . $productos->idProducto . '"><button class="btn add">Despublicar <i class="far fa-thumbs-down"></i></button></a>';
-									}
-								?>
-								<a href="<?=base_url();?>admin/modificarProducto/<?=$productos->idProducto?>"><button class="btn add"><i class="fas fa-box-open"></i> MODIFICAR</button></a></td>
+								<td><?=$aux->apellidoUsuario;?></td>
+								<td><?php if($aux->permisos > 1){echo "Administrador";}else{echo "Super Administrador";} ?></td>
+								<td>
+									<?php 
+										if($aux->permisos > 1){
+											echo '
+												<a href="' . base_url() . 'UsuariosAdmin/modificarUsuarios/' . $aux->noUsuario . '" class="btn btn-warning"><i class="fas fa-user-edit"></i> Editar</a>
+												<a href="' . base_url() . 'UsuariosAdmin/eliminarUsuarios/' . $aux->noUsuario . '" class="btn btn-danger"><i class="fas fa-user-times"></i> Eliminar</a>	
+											';
+										}else{
+											echo "No hay acciones";
+										}
+									?>
+								</td>
 							</tr>
 						<?php }?>
 						</tbody>

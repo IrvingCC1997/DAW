@@ -62,10 +62,15 @@
 	<!-- Se imprime todo el contenido que tiene la variable -->
 	<?=$output;?>
 
+	<?php foreach($js_files as $files): ?>
+		<script src="<?=$files?>"></script>
+	<?php endforeach; ?>
+
 	<!-- JQuery -->
 	<script type="text/javascript" src="<?=base_url();?>js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>js/popper.min.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<?=base_url();?>js/mdb.min.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>js/mdb.min.js"></script>
+    
 </body>
 </html>

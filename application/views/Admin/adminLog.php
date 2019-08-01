@@ -26,7 +26,7 @@
 <main>
 	<div class="contenedorLogin">
 		<div class="card-cuenta">
-			<form action="../UsuariosAdmin/login" method="post">
+			<form action="UsuariosAdmin/login" method="post">
 				<center><h4 class="titulo">Inicia Sesión</h4></center><br>
 				<label for="noUsuario" id="user">Ingresa tu número de usuario:</label>
 				<input type="text" name="noUsuario" id="noUsuario" class="form-control input" placeholder="00012">

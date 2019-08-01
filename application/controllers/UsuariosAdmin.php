@@ -11,13 +11,20 @@ class UsuariosAdmin extends CI_Controller {
 	}
 
 	public function index(){
-                $data['products'] = $this->Usuarios_model->verProductos();
+		if($this->session->userdata('login') == true){
+			if($this->session->userdata('permisos') >= 1){
+				$data['products'] = $this->Usuarios_model->verUsuarios();
 				$this->load->view('Admin/usuariosAdmin', $data);
-	
+			}else{
+				redirect('Cuenta');
+			}
+		}else{
+			redirect('Cuenta');
+		}
 	}
 
-	public function usuariosAdmin(){
-		$this->load->view('Admin/userAdmin');
+	public function add_user(){
+		$this->load->view('Admin/addUser');
 	}
 	
 	public function logout(){
@@ -69,24 +76,55 @@ class UsuariosAdmin extends CI_Controller {
 			redirect('Cuenta');
 		}
 	}
-
-	public function add_user(){
-		$this->load->view('Admin/addUser');
-	}
 	
-	public function registrarUser(){
+	public function registrarAdministrador(){
 		// Ciframos lo que tenga la variable contrasena
 		$ciphertext = $this->encryption->encrypt($this->input->post("pass"));
 
 		// Asignamos los valores del formulario al modelo
 		$this->Usuarios_model->set_noUsuario($this->input->post("noUsuario"));
-        $this->Usuarios_model->set_nombreUsuario($this->input->post("nombreUsuario"));
-		$this->Usuarios_model->set_apellidoUsuario($this->input->post("apellidoUsuario"));
-		$this->Usuarios_model->set_permisos(1);
+        $this->Usuarios_model->set_nombreUsuario($this->input->post("nombre"));
+		$this->Usuarios_model->set_apellidoUsuario($this->input->post("apellido"));
+		$this->Usuarios_model->set_permisos(2);
 
 		// Pasamos la contraseña cifrada al modelo
 		$this->Usuarios_model->set_contrasenaUsuario($ciphertext);
-        //$this->Usuarios_model->registrar_User();
-        redirect('Admin/UsuariosAdmin');
+        $this->Usuarios_model->registrar_User();
+        redirect('UsuariosAdmin');
+	}
+
+	public function modificarUsuarios($noUsuario){
+        if($this->session->userdata('login') == true){
+            if($this->session->userdata('permisos') >= 1){
+                $this->Usuarios_model->set_noUsuario($noUsuario);
+                $dataModify['modifyUser'] = $this->Usuarios_model->listarPorUsuario();
+                $this->load->view('Admin/modificarUsuario', $dataModify);
+            }else{
+                redirect('Cuenta');
+            }
+        }else{
+            redirect('Cuenta');
+        }
+	}
+	
+	public function updateUser(){
+		// Ciframos lo que tenga la variable contrasena
+		$ciphertext = $this->encryption->encrypt($this->input->post("pass"));
+
+		// Asignamos los valores del formulario al modelo
+		$this->Usuarios_model->set_noUsuario($this->input->post("noUsuario"));
+        $this->Usuarios_model->set_nombreUsuario($this->input->post("nombre"));
+		$this->Usuarios_model->set_apellidoUsuario($this->input->post("apellido"));
+
+		// Pasamos la contraseña cifrada al modelo
+		$this->Usuarios_model->set_contrasenaUsuario($ciphertext);
+        $this->Usuarios_model->updateUser();
+        redirect('UsuariosAdmin');
+	}
+
+	public function eliminarUsuarios($noUsuario){
+        $this->Usuarios_model->set_noUsuario($noUsuario);
+        $this->Usuarios_model->deleteUser();
+        redirect('UsuariosAdmin');
 	}
 }
