@@ -382,3 +382,25 @@ li{
     right: 20px;
     top: 20px;
 }
+
+.user{
+	padding: 10px;
+	font-size: 15px;
+    width: 100px;
+    height: 42px;
+    border-radius: 20px;
+    opacity: 0.90;
+    background-color: #0653CC;
+    position: fixed;
+    right: 20px;
+	top: 135px;
+	transition: transform .1s; /* Animation */
+}
+
+.user > a{
+	color: #fff;
+}
+
+.user:hover{
+	transform: scale(1.03);
+}

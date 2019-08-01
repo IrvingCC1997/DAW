@@ -6,10 +6,9 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Usuarios | Agrotracsem</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-	<!-- Se utiliza la función que ya esta precargada para utilizar archivos CSS -->
-	<?php foreach($css_files as $file): ?>
-		<link rel="stylesheet" href="<?=$file;?>">
-	<?php endforeach; ?>
+	<link href="<?=base_url();?>css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?=base_url();?>css/mdb.min.css" rel="stylesheet">
+	<link href="<?=base_url();?>css/style.css" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -59,8 +58,45 @@
 			</div>
 		</nav>
 	</header>
-	<!-- Se imprime todo el contenido que tiene la variable -->
-	<?=$output;?>
+	
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-md-12 col-lg-12 col-xl-12">
+				<div class="user"><a href="<?=base_url();?>UsuariosAdmin/add_User"><i class="fas fa-user-plus"></i> Usuario</a></div>
+				<div class="card-table">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+							<th scope="col">Número del usuario</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Permisos</th>
+							<th scope="col">Acciones </th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php foreach($products as $aux){?>
+							<tr>
+								<th scope="row"><?=$aux->noUsuario;?></th>
+								<td><?=$aux->nombreUsuario;?></td>
+								<td>$<?=$aux->apellidoUsuario;?></td>
+								<td>$<?=$aux->permisos;?></td>
+								<td><?php
+									if($productos->baja_logica == 0){
+										echo '<a href="'. base_url() . 'Admin/publicarPregunta/' . $productos->idProducto . '"><button class="btn add">Publicar <i class="far fa-thumbs-up"></i></button></a>';
+									}else{
+										echo '<a href="'. base_url() . 'Admin/despublicarPregunta/' . $productos->idProducto . '"><button class="btn add">Despublicar <i class="far fa-thumbs-down"></i></button></a>';
+									}
+								?>
+								<a href="<?=base_url();?>admin/modificarProducto/<?=$productos->idProducto?>"><button class="btn add"><i class="fas fa-box-open"></i> MODIFICAR</button></a></td>
+							</tr>
+						<?php }?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- JQuery -->
 	<script type="text/javascript" src="<?=base_url();?>js/jquery-3.4.1.min.js"></script>

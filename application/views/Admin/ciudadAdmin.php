@@ -29,7 +29,7 @@
 						<a class="nav-link" href="<?=base_url();?>ImagenesAdmin">Imagenes</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?=base_url();?>UsuariosAdmin">Usuarios</a>
+						<a class="nav-link" href="<?=base_url();?>Admin/UsuariosAdmin">Usuarios</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="<?=base_url();?>ClientesAdmin">Clientes</a>

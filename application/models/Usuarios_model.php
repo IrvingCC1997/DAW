@@ -11,7 +11,7 @@
 */
 defined('BASEPATH') OR exit("You can't here");
 
-class Admin_model extends CI_Model{
+class Usuarios_model extends CI_Model{
     private $_noUsuario;
     private $_nombreUsuario;
     private $_apellidoUsuario;
@@ -60,6 +60,14 @@ class Admin_model extends CI_Model{
 
 	public function set_permisos($_permisos){
 		$this->_permisos = $_permisos;
+	}
+
+	public function verProductos(){
+		// Hacemos la consulta a la BD
+		$this->db->select('noUsuario, nombreUsuario, apellidoUsuario, permisos');
+		$this->db->from('usuarios');
+		$products = $this->db->get('');
+		return $products->result();
 	}
 
 	public function adminLogin(){
