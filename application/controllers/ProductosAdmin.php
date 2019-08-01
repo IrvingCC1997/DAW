@@ -1,4 +1,14 @@
 <?php
+/*
+* Controlador Imagenes 
+*
+* @author Irving Cruz
+* @package application/controlador
+*
+* @version 1.0.0
+* Creado jueves, 01/08/2019
+* Ultima modificación de 01/08/2019
+*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ProductosAdmin extends CI_Controller {
@@ -17,8 +27,8 @@ class ProductosAdmin extends CI_Controller {
 					$crud->set_table('productos');
 					// Cambia el nombre de la table (Alias)
 					$crud->set_subject('Productos');
-					$crud->columns('nombre', 'descripcion', 'precioVenta', 'precioCompra', 'stock', 'noUsuarioP', 'idImagenesP', 'idCategoriaP');
-					$crud->required_fields('nombre', 'descripcion', 'precioVenta', 'precioCompra', 'stock');
+					$crud->columns('nombreProducto', 'descripcionProducto', 'precioVenta', 'precioCompra', 'stock', 'noUsuarioP', 'idImagenesP', 'idCategoriaP');
+					$crud->required_fields('nombreProducto', 'descripcionProducto', 'precioVenta', 'precioCompra', 'stock');
 		
 					/*
 						* Se comienza a construir las relaciones,

@@ -1,3 +1,15 @@
+<?php
+/*
+* Vista Productos 
+*
+* @author Irving Cruz
+* @package views/Admin
+*
+* @version 1.0.0
+* Creado jueves, 01/08/2019
+* Ultima modificación de 01/08/2019
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +47,7 @@
 						<a class="nav-link" href="<?=base_url();?>ClientesAdmin">Clientes</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?=base_url();?>Contacto/comentarios">Comentarios</a>
+						<a class="nav-link" href="<?=base_url();?>ClientesAdmin">Comentarios</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link" id="administrar" data-toggle="dropdown"
