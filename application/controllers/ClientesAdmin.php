@@ -24,7 +24,7 @@ class ClientesAdmin extends CI_Controller {
 					$crud->set_subject('Clientes');
 					$crud->columns('nombreCliente', 'apellidoCliente', 'correoElectronico', 'contrasena');
 					$crud->required_fields('nombreCliente', 'apellidoCliente', 'correoElectronico', 'contrasena');
-
+					
 					$output = $crud->render();
 					// Es un casteo por eso se antepone la palabra array
 					$this->load->view('Admin/clientesA.php', (array)$output);

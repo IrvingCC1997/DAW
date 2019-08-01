@@ -1,4 +1,14 @@
 <?php
+/*
+* Controlador Usuarios 
+*
+* @author Alberto León
+* @package application/controllers
+*
+* @version 1.0.0
+* Creado -
+* Ultima modificación de 01/08/2019
+*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UsuariosAdmin extends CI_Controller {
