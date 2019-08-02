@@ -45,6 +45,9 @@ class ProductosAdmin extends CI_Controller {
 					$crud->set_relation('idCategoriaP', 'categoria', 'idCategoria');
 					$crud->display_as('idCategoriaP', 'Categoria');
 					
+					$crud->unset_print();
+					$crud->unset_export();
+
 					$output = $crud->render();
 					$this->load->view('Admin/productosAdmin.php', (array)$output);
 				 }catch(Exception $e){

@@ -18,6 +18,8 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Productos | Agrotracsem</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<link href="<?=base_url();?>css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?=base_url();?>css/style.css" rel="stylesheet">
 	<!-- Se utiliza la función que ya esta precargada para utilizar archivos CSS -->
 	<?php foreach($css_files as $file): ?>
 		<link rel="stylesheet" href="<?=$file;?>">

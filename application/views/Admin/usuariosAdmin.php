@@ -74,7 +74,9 @@
 	<div class="container">
 		<div class="row mt-3">
 			<div class="col-md-12 col-lg-12 col-xl-12">
-				<div class="user"><a href="<?=base_url();?>UsuariosAdmin/add_User"><i class="fas fa-user-plus"></i> Usuario</a></div>
+				<div class="user"><a href="<?=base_url();?>UsuariosAdmin/add_User"><i class="fas fa-user-plus"></i> Usuario</a></div><br>
+				<div class="print"><a href="<?=base_url();?>UsuariosAdmin/print"><i class="fas fa-print"></i> Imprimir</a></div>
+
 				<div class="card-table">
 					<table class="table table-hover">
 						<thead>

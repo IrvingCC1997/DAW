@@ -388,7 +388,7 @@ li{
     top: 20px;
 }
 
-.user{
+.print{
 	padding: 10px;
 	font-size: 15px;
     width: 100px;
@@ -398,7 +398,21 @@ li{
     background-color: #0653CC;
     position: fixed;
     right: 20px;
-	top: 135px;
+	top: 150px;
+	transition: transform .1s; /* Animation */
+}
+
+.user{
+	padding: 10px;
+	font-size: 15px;
+    width: 100px;
+    height: 42px;
+    border-radius: 20px;
+    opacity: 0.90;
+    background-color: rgb(16, 63, 139);
+    position: fixed;
+    right: 20px;
+	top: 200px;
 	transition: transform .1s; /* Animation */
 }
 
@@ -406,8 +420,13 @@ li{
 	color: #fff;
 }
 
-.user:hover{
+.print > a{
+	color: #fff;
+}
+
+.user:hover, .print:hover{
 	transform: scale(1.03);
+	color: #fff;
 }
 
 .btn-danger, .btn-warning{

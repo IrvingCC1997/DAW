@@ -137,4 +137,29 @@ class UsuariosAdmin extends CI_Controller {
         $this->Usuarios_model->deleteUser();
         redirect('UsuariosAdmin');
 	}
+
+	public function print(){
+		
+		$data['products'] = $this->Usuarios_model->verUsuarios();
+		$this->load->view('Admin/usuariosAdmin', $data);
+		// Get output html
+        $html = $this->output->get_output();
+        
+        // Load pdf library
+        $this->load->library('pdf');
+        
+        // Load HTML content
+        $this->dompdf->loadHtml($html);
+        
+        // (Optional) Setup the paper size and orientation
+        $this->dompdf->setPaper('A4', 'landscape');
+        
+        // Render the HTML as PDF
+        $this->dompdf->render();
+        
+        // Output the generated PDF (1 = download and 0 = preview)
+		$this->dompdf->stream("productos.pdf", array("Attachment"=>0));
+		
+		redirect('ProductosAdmin');
+	}
 }
