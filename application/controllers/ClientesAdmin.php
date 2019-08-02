@@ -1,4 +1,14 @@
 <?php
+/*
+* Vista Clientes 
+*
+* @author Joana Dominguez
+* @package application/controllers
+*
+* @version 1.0.0
+* Creado -
+* Ultima modificación de 01/08/2019
+*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ClientesAdmin extends CI_Controller {
@@ -22,9 +32,14 @@ class ClientesAdmin extends CI_Controller {
 					$crud->set_table('clientes');
 					// Cambia el nombre de la table (Alias)
 					$crud->set_subject('Clientes');
-					$crud->columns('nombreCliente', 'apellidoCliente', 'correoElectronico', 'contrasena');
+					$crud->columns('nombreCliente', 'apellidoCliente', 'correoElectronico');
 					$crud->required_fields('nombreCliente', 'apellidoCliente', 'correoElectronico', 'contrasena');
 					
+					// Indicamos que elimine los botones de agregar, eliminar y borrar
+					$crud->unset_add();
+					$crud->unset_edit();
+					$crud->unset_delete();
+			
 					$output = $crud->render();
 					// Es un casteo por eso se antepone la palabra array
 					$this->load->view('Admin/clientesA.php', (array)$output);
