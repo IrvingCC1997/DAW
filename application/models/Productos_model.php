@@ -117,6 +117,16 @@ class Productos_model extends CI_Model{
         $this->db->join('imagenes', 'imagenes.idImagen = productos.idImagenesP');
 		$productos = $this->db->get('');
 		return $productos->result();
+	}
+	
+	public function listarPorProducto(){
+        $this->db->where('idProducto', $this->_idProducto);
+		$this->db->select('*');
+        $this->db->from('productos');
+        $this->db->join('categoria', 'categoria.idCategoria = productos.idCategoriaP');
+        $this->db->join('imagenes', 'imagenes.idImagen = productos.idImagenesP');
+		$productos = $this->db->get('');
+		return $productos->result();
     }
 
 }

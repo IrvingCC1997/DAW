@@ -70,7 +70,7 @@
 
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="#">Carrito <i class="fas fa-shopping-cart"></i></a>
+						<a class="nav-link" href="<?=base_url();?>Carrito">Carrito <i class="fas fa-shopping-cart"></i></a>
 					</li>
 					<li class="nav-item">
 						<?php 

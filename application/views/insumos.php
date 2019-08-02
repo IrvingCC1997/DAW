@@ -1,6 +1,6 @@
 <?php
 /*
-* Vista Insumos 
+* Vista mecanico 
 *
 * @author Alberto León
 * @package application/views
@@ -24,11 +24,27 @@
 							<div class="card-store">
 								<img src="<?=base_url();?>images/images_upload/<?=$aux->imagen1;?>" alt="<?=$aux->nombreProducto?>" class="img-store">
 								<div class="card-body product">
-								<h5 class="titulo"><a href=""><?=$aux->nombreProducto?></a></h5>
+								<h5 class="titulo"><a href="<?=base_url();?>productosAdmin/detalleProducto/<?=$aux->idProducto?>"><?=$aux->nombreProducto?></a></h5>
 								<span class="categoria"><i class="fas fa-tags"></i> <?=$aux->nombreCategoria?></span>
 								<h6 style="color: #197339; margin-top: 1rem;">$<?=$aux->precioVenta?></h6>
 								<hr>
-								<center><a href="<?=base_url();?>Productos/detalleProducto/<?=$aux->idProducto?>" onclick="return displayGrowl();" class="add-shop">AGREGAR AL CARRITO <i class="fas fa-shopping-cart"></i></a></center>
+									<?php
+										echo form_open('carrito/add');
+											echo form_hidden('id', $aux->idProducto);
+											echo form_hidden('name', $aux->nombreProducto);
+											echo form_hidden('price', $aux->precioVenta);
+									?>
+									<center><div id='add_button'>
+										<?php
+											$btn = array(
+											'class' => 'btn add-shop',
+											'value' => 'AGREGAR AL CARRITO ',
+											'name' => 'action'
+											);
+											echo form_submit($btn);
+										echo form_close();
+										?>
+									</div></center>
 								</div>
 							</div>
 						</div>
