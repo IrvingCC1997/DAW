@@ -1,3 +1,15 @@
+<?php
+/*
+* Controlador Metodo de envio 
+*
+* @author Eduardo Perez
+* @package application/views
+*
+* @version 1.0.0
+* Creado -
+* Ultima modificación de 01/08/2019
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
