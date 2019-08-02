@@ -1,136 +1,121 @@
--- MySQL dump 10.16  Distrib 10.1.37-MariaDB, for debian-linux-gnu (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: agrotracsem
--- ------------------------------------------------------
--- Server version	10.1.37-MariaDB-0+deb9u1
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 02-08-2019 a las 21:20:30
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.1.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `categoria`
+-- Base de datos: `agrotracsem`
 --
 
-DROP TABLE IF EXISTS `categoria`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categoria`
+--
+
 CREATE TABLE `categoria` (
-  `idCategoria` int(11) NOT NULL AUTO_INCREMENT,
-  `nombreCategoria` varchar(50) NOT NULL,
-  PRIMARY KEY (`idCategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `idCategoria` int(11) NOT NULL,
+  `nombreCategoria` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `categoria`
+-- Volcado de datos para la tabla `categoria`
 --
 
-LOCK TABLES `categoria` WRITE;
-/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-INSERT INTO `categoria` VALUES (1,'Insumos agrícolas'),(2,'Servicio mecánico'),(3,'Refacciones');
-/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `categoria` (`idCategoria`, `nombreCategoria`) VALUES
+(1, 'Insumos agrícolas'),
+(2, 'Servicio mecánico'),
+(3, 'Refacciones');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `ciudad`
+-- Estructura de tabla para la tabla `ciudad`
 --
 
-DROP TABLE IF EXISTS `ciudad`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ciudad` (
-  `idCiudad` int(11) NOT NULL AUTO_INCREMENT,
+  `idCiudad` int(11) NOT NULL,
   `nombreCiudad` varchar(80) NOT NULL,
-  `idEstadoC` int(11) NOT NULL,
-  PRIMARY KEY (`idCiudad`),
-  KEY `fk_ciudad_estado` (`idEstadoC`),
-  CONSTRAINT `fk_ciudad_estado` FOREIGN KEY (`idEstadoC`) REFERENCES `estado` (`idEstado`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `idEstadoC` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ciudad`
+-- Volcado de datos para la tabla `ciudad`
 --
 
-LOCK TABLES `ciudad` WRITE;
-/*!40000 ALTER TABLE `ciudad` DISABLE KEYS */;
-INSERT INTO `ciudad` VALUES (1,'Acámbaro',1),(2,'Celaya',1);
-/*!40000 ALTER TABLE `ciudad` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `ciudad` (`idCiudad`, `nombreCiudad`, `idEstadoC`) VALUES
+(1, 'Acámbaro', 1),
+(2, 'Celaya', 1);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `clientes`
+-- Estructura de tabla para la tabla `clientes`
 --
 
-DROP TABLE IF EXISTS `clientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `clientes` (
-  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
+  `idCliente` int(11) NOT NULL,
   `nombreCliente` varchar(30) NOT NULL,
   `apellidoCliente` varchar(30) NOT NULL,
   `correoElectronico` varchar(80) NOT NULL,
-  `contrasena` blob,
-  PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `contrasena` blob
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `clientes`
+-- Volcado de datos para la tabla `clientes`
 --
 
-LOCK TABLES `clientes` WRITE;
-/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'Alberto ','León','albertoleon@gmail.com','fsfdsfsfsd'),(2,'Alberto ','León','albertoleon@gmail.com','a48e70de2a03f078abbaa97b3ef7b79d243b1090c3776b7132786e3d1e70f7a083e88bf175cf6eb625939364046c4fa4f415b1ddc84c3295206da4bd5c5b13ebkU8XEnQaRGMB6d9VYDWtKHlghgZ+0WZlNXmwN8guv5o='),(3,'Alberto','León','albertoleonm21@gmail.com','619aefac88bf90ed5f24069403af189152656e2f72be07928ae6d9db7cd082d5ebb0c1051db59e799c6f0d8776ada08786692b42bf94cd39360781174c56a5dfJf0BYCJPDcrKlGC2GkgDbhai7R/Mgw/TTygqciIYK9g='),(4,'Alberto','Leon','albertoleonm@gmai.com','38b6e4e596cefd5d590e31346372d2c97bd19b53b3994a53ca8f0d321feb33050530cb90fbd7a94a27458207e89b2a59ebcac3126a77eabb02a7e4d9eee1fbc7USnMqhkP4tNBiASQA2hQ5Tp2UevIInjj8M1eLvWntZY='),(5,'Goretti','Medina','gorettiMedina@gmail.com','7c3977cb0dfa723d87ac648a6beddef8d7358ab50d8a7c3ee8557103177672d8beb610ca218bd842b1104d04656b5e24be9b36b142b9c1e47397bc0122701093Olf+rvneixfaH+SOxW2xs5v7t3xtru5MCmj3V2pbQ28='),(6,'Luis','Soto','luisSoto@gmail.com','aac49890692aec21022a64bd9c240ff5214b26026c84558c6b1995d7f0b0c0b20f4510ba8d268003cfa5defb10c1b9083b24a0e00a7770c1425536b6aacb8b9dvdXGSuf3cEohVsaGbWEoZtV6H+HYM/aUdRnvNthAq6U='),(7,'Luis','Soto','luisSoto@gmail.com','15d4d122937f6e2bcc1d3357a6daf68bb2f5162fe054e72f014cfb4a1f01176f408ade810241d2d41b11f37c66dfe007a2d3310d7832a861d5016ac2b7979d6eZjczUGRwYCqkQY9pn6gbTC9i+u5kQbluaJ77vKzZNNA=');
-/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `clientes` (`idCliente`, `nombreCliente`, `apellidoCliente`, `correoElectronico`, `contrasena`) VALUES
+(1, 'Alberto ', 'León', 'albertoleon@gmail.com', 0x66736664736673667364),
+(2, 'Alberto ', 'León', 'albertoleon@gmail.com', 0x61343865373064653261303366303738616262616139376233656637623739643234336231303930633337373662373133323738366533643165373066376130383365383862663137356366366562363235393339333634303436633466613466343135623164646338346333323935323036646134626435633562313365626b553858456e516152474d4236643956594457744b486c6768675a2b30575a6c4e586d774e38677576356f3d),
+(3, 'Alberto', 'León', 'albertoleonm21@gmail.com', 0x36313961656661633838626639306564356632343036393430336166313839313532363536653266373262653037393238616536643964623763643038326435656262306331303531646235396537393963366630643837373661646130383738363639326234326266393463643339333630373831313734633536613564664a66304259434a504463724b6c474332476b67446268616937522f4d67772f5454796771636949594b39673d),
+(4, 'Alberto', 'Leon', 'albertoleonm@gmai.com', 0x333862366534653539366365666435643539306533313334363337326432633937626431396235336233393934613533636138663064333231666562333330353035333063623930666264376139346132373435383230376538396232613539656263616333313236613737656162623032613765346439656565316662633755536e4d71686b5034744e4269415351413268513554703255657649496e6a6a384d31654c76576e745a593d);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `contacto`
+-- Estructura de tabla para la tabla `contacto`
 --
 
-DROP TABLE IF EXISTS `contacto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contacto` (
-  `idContacto` int(11) NOT NULL AUTO_INCREMENT,
+  `idContacto` int(11) NOT NULL,
   `nombreContacto` varchar(30) NOT NULL,
   `correoContacto` varchar(50) NOT NULL,
   `mensaje` varchar(150) NOT NULL,
-  `idUsuario_contacto` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idContacto`),
-  KEY `fk_contacto_usuarios` (`idUsuario_contacto`),
-  CONSTRAINT `fk_contacto_usuarios` FOREIGN KEY (`idUsuario_contacto`) REFERENCES `usuarios` (`noUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `idUsuario_contacto` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `contacto`
+-- Volcado de datos para la tabla `contacto`
 --
 
-LOCK TABLES `contacto` WRITE;
-/*!40000 ALTER TABLE `contacto` DISABLE KEYS */;
-INSERT INTO `contacto` VALUES (1,'Alberto León','albertoleon@gmail.com','Some',1001),(2,'Alberto León','albertoleon@gmail.com','Otro mensaje',1001);
-/*!40000 ALTER TABLE `contacto` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `contacto` (`idContacto`, `nombreContacto`, `correoContacto`, `mensaje`, `idUsuario_contacto`) VALUES
+(1, 'Alberto León', 'albertoleon@gmail.com', 'Some', 1001),
+(2, 'Alberto León', 'albertoleon@gmail.com', 'Otro mensaje', 1001);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `detallecompra`
+-- Estructura de tabla para la tabla `detallecompra`
 --
 
-DROP TABLE IF EXISTS `detallecompra`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `detallecompra` (
-  `noCompra` int(11) NOT NULL AUTO_INCREMENT,
+  `noCompra` int(11) NOT NULL,
   `fechaCompra` date DEFAULT NULL,
   `fechaEnvio` date DEFAULT NULL,
   `direccionEnvio` varchar(50) NOT NULL,
@@ -139,139 +124,106 @@ CREATE TABLE `detallecompra` (
   `idClienteC` int(11) DEFAULT NULL,
   `idCiudadC` int(11) DEFAULT NULL,
   `idMetodoEnvioC` int(11) DEFAULT NULL,
-  `idMetodoPagoC` int(11) DEFAULT NULL,
-  PRIMARY KEY (`noCompra`),
-  KEY `fk_detalle_producto` (`idProductoC`),
-  KEY `fk_detalle_cliente` (`idClienteC`),
-  KEY `fk_detalle_ciudad` (`idCiudadC`),
-  KEY `fk_detalle_envio` (`idMetodoEnvioC`),
-  KEY `fk_detalle_pago` (`idMetodoPagoC`),
-  CONSTRAINT `fk_detalle_ciudad` FOREIGN KEY (`idCiudadC`) REFERENCES `ciudad` (`idCiudad`),
-  CONSTRAINT `fk_detalle_cliente` FOREIGN KEY (`idClienteC`) REFERENCES `clientes` (`idCliente`),
-  CONSTRAINT `fk_detalle_envio` FOREIGN KEY (`idMetodoEnvioC`) REFERENCES `metodoenvio` (`idMetodoEnvio`),
-  CONSTRAINT `fk_detalle_pago` FOREIGN KEY (`idMetodoPagoC`) REFERENCES `metodopago` (`idMetodoPago`),
-  CONSTRAINT `fk_detalle_producto` FOREIGN KEY (`idProductoC`) REFERENCES `productos` (`idProducto`)
+  `idMetodoPagoC` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `detallecompra`
+-- Estructura de tabla para la tabla `estado`
 --
 
-LOCK TABLES `detallecompra` WRITE;
-/*!40000 ALTER TABLE `detallecompra` DISABLE KEYS */;
-/*!40000 ALTER TABLE `detallecompra` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `estado`
---
-
-DROP TABLE IF EXISTS `estado`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `estado` (
-  `idEstado` int(11) NOT NULL AUTO_INCREMENT,
-  `nombreEstado` varchar(80) NOT NULL,
-  PRIMARY KEY (`idEstado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `idEstado` int(11) NOT NULL,
+  `nombreEstado` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `estado`
+-- Volcado de datos para la tabla `estado`
 --
 
-LOCK TABLES `estado` WRITE;
-/*!40000 ALTER TABLE `estado` DISABLE KEYS */;
-INSERT INTO `estado` VALUES (1,'Guanajuato');
-/*!40000 ALTER TABLE `estado` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `estado` (`idEstado`, `nombreEstado`) VALUES
+(1, 'Guanajuato');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `imagenes`
+-- Estructura de tabla para la tabla `imagenes`
 --
 
-DROP TABLE IF EXISTS `imagenes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `imagenes` (
-  `idImagen` int(11) NOT NULL AUTO_INCREMENT,
+  `idImagen` int(11) NOT NULL,
   `imagen1` varchar(100) NOT NULL,
   `imagen2` varchar(100) DEFAULT NULL,
-  `imagen3` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`idImagen`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `imagen3` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `imagenes`
+-- Volcado de datos para la tabla `imagenes`
 --
 
-LOCK TABLES `imagenes` WRITE;
-/*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
-INSERT INTO `imagenes` VALUES (2,'dasd1.png','images1.png','unnamed1.jpg'),(3,'unnammnved_(1).png','mhvuhjvl_(1).png','unnamed.png');
-/*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `imagenes` (`idImagen`, `imagen1`, `imagen2`, `imagen3`) VALUES
+(3, 'cub-SIII15W40.png', 'quaker.png', 'quaker1.png'),
+(4, 'Agrolita.jpg', 'Agrolita1.jpg', 'bulto-de-agrolita-perlita-volumen-de-100lts-11-12kg-55556256-D_NQ_NP_3474-MLM4236298283_042013-O.jpg'),
+(5, 'peat-moss-turba-paca-grande-de-107-lts-y-25-kilos-D_NQ_NP_658704-MLM31367924838_072019-F.jpg', 'sustrato.jpg', 'peat-moss-turba-paca-grande-de-107-lts-y-25-kilos-D_NQ_NP_658704-MLM31367924838_072019-F1.jpg'),
+(6, 'D_NP_3965-MLM4880508082_082013-Q.jpg', 'ABT1280-6-1024x680.jpg', 'recorte-bot.jpg'),
+(7, 'semilla-maiz-cb-crm-52-D_NQ_NP_950087-MLM29010021849_122018-F.jpg', 'maiz14agosto1.jpg', 'Campo-Tomate-Maiz-Elote-Agro-4.jpg'),
+(8, 'semilla-de-maiz-hibrido-para-siembra-D_NQ_NP_975345-MLM27876160032_072018-F.jpg', 'maiz14agosto11.jpg', 'recorte-bot1.jpg'),
+(9, 'banda-tractopodador-12-x-95-38-oregon-75-197-D_NQ_NP_935404-MLM29473493724_022019-Q.jpg', '16.jpeg', '41.jpg'),
+(10, '18.jpeg', '24.jpeg', '39.jpeg'),
+(11, 'llanta-750-16-goodyear-rib-tractor-8c-f2-cc-msi-D_NQ_NP_677702-MLM31238368372_062019-F.jpg', '13_.jpeg', '38.jpeg'),
+(12, 'llanta-1000-16-jk-tyre-tornel-tr-del-rib-king-sc-tl-8c-D_NQ_NP_871685-MLM29618285913_032019-F.jpg', '37.jpeg', '36.jpg'),
+(13, '1-llanta-184-30-tractor-12cp-r1-tt-y-camara-D_NQ_NP_963866-MLM31230480398_062019-F.jpg', '20.jpeg', '22.jpeg'),
+(16, 'qwertyuiopasdfgg1.jpg', 'twertwertwertwergweggfdfg.jpg', 'qwertyuioplkjhgfds1.jpg');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `metodoenvio`
+-- Estructura de tabla para la tabla `metodoenvio`
 --
 
-DROP TABLE IF EXISTS `metodoenvio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `metodoenvio` (
-  `idMetodoEnvio` int(11) NOT NULL AUTO_INCREMENT,
+  `idMetodoEnvio` int(11) NOT NULL,
   `nombreMetodo` varchar(30) NOT NULL,
   `precioEnvio` float NOT NULL,
-  `diasEnvio` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idMetodoEnvio`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `diasEnvio` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `metodoenvio`
+-- Volcado de datos para la tabla `metodoenvio`
 --
 
-LOCK TABLES `metodoenvio` WRITE;
-/*!40000 ALTER TABLE `metodoenvio` DISABLE KEYS */;
-INSERT INTO `metodoenvio` VALUES (1,'DHL',110,5),(2,'Estafeta',100,6);
-/*!40000 ALTER TABLE `metodoenvio` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `metodoenvio` (`idMetodoEnvio`, `nombreMetodo`, `precioEnvio`, `diasEnvio`) VALUES
+(1, 'DHL', 110, 5),
+(2, 'Estafeta', 100, 6);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `metodopago`
+-- Estructura de tabla para la tabla `metodopago`
 --
 
-DROP TABLE IF EXISTS `metodopago`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `metodopago` (
-  `idMetodoPago` int(11) NOT NULL AUTO_INCREMENT,
-  `nombreMetodoPago` varchar(30) NOT NULL,
-  PRIMARY KEY (`idMetodoPago`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `idMetodoPago` int(11) NOT NULL,
+  `nombreMetodoPago` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `metodopago`
+-- Volcado de datos para la tabla `metodopago`
 --
 
-LOCK TABLES `metodopago` WRITE;
-/*!40000 ALTER TABLE `metodopago` DISABLE KEYS */;
-INSERT INTO `metodopago` VALUES (1,'Visa y MasterCard'),(2,'Oxxo');
-/*!40000 ALTER TABLE `metodopago` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `metodopago` (`idMetodoPago`, `nombreMetodoPago`) VALUES
+(1, 'Visa y MasterCard'),
+(2, 'Oxxo');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
-DROP TABLE IF EXISTS `productos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `productos` (
-  `idProducto` int(11) NOT NULL AUTO_INCREMENT,
+  `idProducto` int(11) NOT NULL,
   `nombreProducto` varchar(50) NOT NULL,
   `descripcionProducto` text NOT NULL,
   `precioVenta` float NOT NULL,
@@ -279,61 +231,234 @@ CREATE TABLE `productos` (
   `stock` int(11) DEFAULT NULL,
   `noUsuarioP` int(11) DEFAULT NULL,
   `idImagenesP` int(11) DEFAULT NULL,
-  `idCategoriaP` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idProducto`),
-  KEY `fk_productos_usuarios` (`noUsuarioP`),
-  KEY `fk_productos_imagenes` (`idImagenesP`),
-  KEY `fk_productos_categoria` (`idCategoriaP`),
-  CONSTRAINT `fk_productos_categoria` FOREIGN KEY (`idCategoriaP`) REFERENCES `categoria` (`idCategoria`),
-  CONSTRAINT `fk_productos_imagenes` FOREIGN KEY (`idImagenesP`) REFERENCES `imagenes` (`idImagen`),
-  CONSTRAINT `fk_productos_usuarios` FOREIGN KEY (`noUsuarioP`) REFERENCES `usuarios` (`noUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `idCategoriaP` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
-LOCK TABLES `productos` WRITE;
-/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,'Tractor','Es un tractor',12354,12356.3,1,1001,2,2),(2,'Prueba','nkjnkjugvkhg',1235,1000,5,1001,3,3);
-/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `productos` (`idProducto`, `nombreProducto`, `descripcionProducto`, `precioVenta`, `precioCompra`, `stock`, `noUsuarioP`, `idImagenesP`, `idCategoriaP`) VALUES
+(1, 'Agrolita Bulto 100 L', '1 Costal de Perlita Expandida Marca Agrolita de 14 Kg 100 Litros. La perlita mineral de origen volcánico.', 450, 410, 11, 1001, 4, 1),
+(2, 'Cambio de aceite', 'Servicio de cambio de aceite completo. Marca Quaker State | Diesel', 150, 140, 2, 1001, 3, 2),
+(3, 'Peat Moss Turba', 'El peat moss es un material pardo obscuro, con buena retención de humedad, buena aireación y alto contenido de materia orgánica, ideal para germinar plántulas en semilleros, invernaderos, viveros, macetas, jardines, como sustrato para flores. ', 500, 410, 10, 1001, 5, 1),
+(4, 'Semilla Maiz Elotero Asgrow ', 'Bulto Cerrado con 50,000 Semillas de maíz elotero ASGROW A7573, tratadas con APRON QUE PROTEGE LA SEMILLAS CONTRA HONGOS Y BACTERIAS.', 2860, 2600, 6, 1001, 6, 1),
+(5, 'Semilla Maíz Cb Crm', 'Bulto Cerrado con 60,000 Semillas de maíz CRM-52', 1890, 1730, 12, 1001, 7, 1),
+(6, 'Semilla de Maiz Agrocel', 'Semilla de maíz hibrido para siembra saco de 60 mil semillas', 2400, 2150, 12, 1001, 8, 1),
+(7, 'Cambio de banda', 'Servicio completo de limpiado y cambio de banda al motor. ', 500, 500, 10, 1001, 9, 2),
+(8, 'Servicio completo', 'Servicio de motor completo, cambio de aceite, revisión de preción de llantas.', 1630, 1630, 15, 1001, 10, 2),
+(9, 'Llanta 7.50-16 Goodyear Rib Tracto', 'Llanta 7.50-16 Goodyear Rib Tractor 8c F2 C/c Msi. Precio por llanta.', 2500, 2000, 8, 1001, 11, 3),
+(10, 'Llanta 10.00-16 Jk Tyre Tornel', 'Llanta 10.00-16 Jk Tyre Tornel Tr Del Rib King S/c Tl 8c. Precio por llanta', 2450, 1800, 8, 1002, 12, 3),
+(11, 'Llanta 18.4-30 Tractor 12cp 18.4-30 Tractor 12cp', '1 Llanta 18.4-30 Tractor 12cp R1 Tt Y Camara. Precio por llanta.', 12560, 11300, 4, 1002, 13, 3),
+(12, 'Llanta 18.4-30 Alliance 12c ', 'Llanta 18.4-30 Alliance 12c Agri R1 Convencional Trasera 324. Precio por llanta.', 18090, 17600, 8, 1001, 16, 3);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuarios` (
-  `noUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `noUsuario` int(11) NOT NULL,
   `nombreUsuario` varchar(30) NOT NULL,
   `apellidoUsuario` varchar(30) NOT NULL,
   `contrasenaUsuario` blob NOT NULL,
-  `permisos` tinyint(1) NOT NULL,
-  PRIMARY KEY (`noUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=1003 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `permisos` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1001,'Administrador','Admon','773c8a0dc236713c9c2508f2392eeda86fa017acbf68bcee4019bf60c35005f542fd4c7d94868a54b2b40e95812ed0d13bb782f2e0b8f1fb50a184963b74f559EU5bzw+VyhqpeLzQbgGuVAs2r1MrpGpOpfYYAN2mLW8=',1),(1002,'Alberto ','León','105585bc7d0f10f309ca9ba36d4b4d588992518edc30cbc340d7a9e9684792f7ad1602b512c83505dc80e76efd74c77f13dd5aaeb9c58418339e3c32a049cbd7Opb5iBvA9cMRQDyhiFsJB5BVV1ve4QSscAVd/i2rBQg=',2);
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `usuarios` (`noUsuario`, `nombreUsuario`, `apellidoUsuario`, `contrasenaUsuario`, `permisos`) VALUES
+(1001, 'Administrador', 'Admon', 0x3737336338613064633233363731336339633235303866323339326565646138366661303137616362663638626365653430313962663630633335303035663534326664346337643934383638613534623262343065393538313265643064313362623738326632653062386631666235306131383439363362373466353539455535627a772b5679687170654c7a51626747755641733272314d727047704f70665959414e326d4c57383d, 1),
+(1002, 'Juan', 'León', 0x366464633164326461623861396430633865636239346432306130353035666436366161386439666362346131333463356565313638666235386161303138336438333039303362656339313365633865653731623939643636633965336664623733386561323631346462343136323837653233653634333162333838386372755766796f444e614b782b55455358542f39716f656755544277354b534b33644c44775737595978586f3d, 2);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`idCategoria`);
+
+--
+-- Indices de la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  ADD PRIMARY KEY (`idCiudad`),
+  ADD KEY `fk_ciudad_estado` (`idEstadoC`);
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`idCliente`);
+
+--
+-- Indices de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD PRIMARY KEY (`idContacto`),
+  ADD KEY `fk_contacto_usuarios` (`idUsuario_contacto`);
+
+--
+-- Indices de la tabla `detallecompra`
+--
+ALTER TABLE `detallecompra`
+  ADD PRIMARY KEY (`noCompra`),
+  ADD KEY `fk_detalle_producto` (`idProductoC`),
+  ADD KEY `fk_detalle_cliente` (`idClienteC`),
+  ADD KEY `fk_detalle_ciudad` (`idCiudadC`),
+  ADD KEY `fk_detalle_envio` (`idMetodoEnvioC`),
+  ADD KEY `fk_detalle_pago` (`idMetodoPagoC`);
+
+--
+-- Indices de la tabla `estado`
+--
+ALTER TABLE `estado`
+  ADD PRIMARY KEY (`idEstado`);
+
+--
+-- Indices de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD PRIMARY KEY (`idImagen`);
+
+--
+-- Indices de la tabla `metodoenvio`
+--
+ALTER TABLE `metodoenvio`
+  ADD PRIMARY KEY (`idMetodoEnvio`);
+
+--
+-- Indices de la tabla `metodopago`
+--
+ALTER TABLE `metodopago`
+  ADD PRIMARY KEY (`idMetodoPago`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`idProducto`),
+  ADD KEY `fk_productos_usuarios` (`noUsuarioP`),
+  ADD KEY `fk_productos_imagenes` (`idImagenesP`),
+  ADD KEY `fk_productos_categoria` (`idCategoriaP`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`noUsuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  MODIFY `idCiudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  MODIFY `idContacto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `detallecompra`
+--
+ALTER TABLE `detallecompra`
+  MODIFY `noCompra` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `estado`
+--
+ALTER TABLE `estado`
+  MODIFY `idEstado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  MODIFY `idImagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `metodoenvio`
+--
+ALTER TABLE `metodoenvio`
+  MODIFY `idMetodoEnvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `metodopago`
+--
+ALTER TABLE `metodopago`
+  MODIFY `idMetodoPago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `noUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  ADD CONSTRAINT `fk_ciudad_estado` FOREIGN KEY (`idEstadoC`) REFERENCES `estado` (`idEstado`);
+
+--
+-- Filtros para la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD CONSTRAINT `fk_contacto_usuarios` FOREIGN KEY (`idUsuario_contacto`) REFERENCES `usuarios` (`noUsuario`);
+
+--
+-- Filtros para la tabla `detallecompra`
+--
+ALTER TABLE `detallecompra`
+  ADD CONSTRAINT `fk_detalle_ciudad` FOREIGN KEY (`idCiudadC`) REFERENCES `ciudad` (`idCiudad`),
+  ADD CONSTRAINT `fk_detalle_cliente` FOREIGN KEY (`idClienteC`) REFERENCES `clientes` (`idCliente`),
+  ADD CONSTRAINT `fk_detalle_envio` FOREIGN KEY (`idMetodoEnvioC`) REFERENCES `metodoenvio` (`idMetodoEnvio`),
+  ADD CONSTRAINT `fk_detalle_pago` FOREIGN KEY (`idMetodoPagoC`) REFERENCES `metodopago` (`idMetodoPago`),
+  ADD CONSTRAINT `fk_detalle_producto` FOREIGN KEY (`idProductoC`) REFERENCES `productos` (`idProducto`);
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `fk_productos_categoria` FOREIGN KEY (`idCategoriaP`) REFERENCES `categoria` (`idCategoria`),
+  ADD CONSTRAINT `fk_productos_imagenes` FOREIGN KEY (`idImagenesP`) REFERENCES `imagenes` (`idImagen`),
+  ADD CONSTRAINT `fk_productos_usuarios` FOREIGN KEY (`noUsuarioP`) REFERENCES `usuarios` (`noUsuario`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-08-01 23:34:39
