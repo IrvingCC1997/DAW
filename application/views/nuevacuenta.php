@@ -73,3 +73,11 @@
 		}
 	}
 </script>
+
+<script type="text/javascript" src="<?=base_url();?>js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>js/popper.min.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>js/mdb.min.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>js/toast.js"></script>
+</body>
+</html>
