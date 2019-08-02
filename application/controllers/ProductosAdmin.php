@@ -16,6 +16,7 @@ class ProductosAdmin extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('grocery_CRUD');
+		$this->load->model('Productos_model');
 	}
 
 	public function index(){
@@ -56,4 +57,14 @@ class ProductosAdmin extends CI_Controller {
 			redirect('Cuenta');
 		}
 	}
+
+	public function detalleProducto($idProducto){
+		$this->Productos_model->set_idProducto($idProducto);
+		$data['title'] = 'Detalle Producto | Promesa';
+		$dataProducto['setProduct'] = $this->Productos_model->listarPorProducto();
+		$this->load->view('components/header', $data);
+		$this->load->view('detalleProducto', $dataProducto);
+		$this->load->view('components/footer');
+	}
+
 }
