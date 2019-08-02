@@ -46,8 +46,8 @@
 										?>
 									</div></center>
 								</div>
-							</div>
-						</div>
+							</div><br>
+						</div><br>
 					</div><br>
 		<?php 
 			
