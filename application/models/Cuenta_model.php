@@ -6,8 +6,8 @@
 * @package application/models
 *
 * @version 1.0.0
-* Creado lunes, 30/07/2019
-* Ultima modificación de 30/07/2019
+* Creado lunes, 29/07/2019
+* Ultima modificación de 31/07/2019
 */
 defined('BASEPATH') OR exit("You can't here");
 
@@ -77,7 +77,7 @@ class Cuenta_model extends CI_Model{
 	public function log(){
 		// Hacemos la consulta a la BD
 		$this->db->where('correoElectronico', $this->_correoCliente);
-		$this->db->select('contrasena, nombreCliente');
+		$this->db->select('contrasena, nombreCliente, correoElectronico');
 		$this->db->from('clientes');
 		$getDB = $this->db->get('');
 		return $getDB->result();
