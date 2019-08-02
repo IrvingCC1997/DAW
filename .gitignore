@@ -45,4 +45,4 @@ application/views/errors/*
 index.php
 license.txt
 bootstrap-v4
-/images
+images/*
