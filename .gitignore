@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .htaccess
 .buildpath
 .settings/
@@ -46,3 +47,6 @@ index.php
 license.txt
 bootstrap-v4
 images/*
+=======
+
+>>>>>>> 72ee75a2b83e1d3cf3aefd52bd7ad6b6c1224170

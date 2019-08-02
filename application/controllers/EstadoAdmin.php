@@ -1,4 +1,14 @@
 <?php
+/*
+* Controlador Estado 
+*
+* @author Eduardo Perez
+* @package application/controllers
+*
+* @version 1.0.0
+* Creado -
+* Ultima modificación de 01/08/2019
+*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class EstadoAdmin extends CI_Controller {
