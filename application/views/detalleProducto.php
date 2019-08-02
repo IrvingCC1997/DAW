@@ -16,8 +16,16 @@
             <?php 
                 if($setProduct){
                     foreach($setProduct as $flag){ 
+                        
             ?>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Productos</li>
+                        <li class="breadcrumb-item"><?=$flag->nombreCategoria?></a></li>
+                        <li class="breadcrumb-item active"><?=$flag->nombreProducto?></li>
+                    </ol>
+                </nav>
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">

@@ -235,7 +235,7 @@ h1, h2, h3, h4, h5, h6, .growl-notice{
 
 .img-store{
 	width: 100% !important;
-	height: 250px !important;
+	height: 230px !important;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	border-bottom-left-radius: 15px;
@@ -440,4 +440,8 @@ li{
 .img-carousel{
 	width: 100%;
 	height: 500px;
+}
+
+.breadcrumb{
+	background-color: #fff !important;
 }
